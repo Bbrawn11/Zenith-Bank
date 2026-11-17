@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Bank — In Your Best Interest</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* ===== RESET ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;}
+body{background:#1b1b1b;overflow-x:hidden;}
+ 
+/* ===== NAV ===== */
+nav{width:100%;background:#1b1b1b;position:sticky;top:0;z-index:3000;}
+ 
+/* top bar */
+.top-bar{width:86%;margin:0 auto;height:36px;display:flex;justify-content:space-between;align-items:center;}
+.top-bar-left,.top-bar-right{display:flex;align-items:center;}
+.top-bar a{color:#868786;text-decoration:none;font-size:11px;padding:4px 9px;border:1px solid #494949;white-space:nowrap;transition:color .2s;}
+.top-bar a:hover{color:#fff;}
+.nig-img{width:14px;vertical-align:middle;margin-right:3px;}
+.top-divider{border-top:1px solid #3a3a3a;}
+ 
+/* main nav row */
+.main-nav{width:86%;margin:0 auto;display:flex;align-items:center;gap:18px;padding:7px 0;position:relative;}
+.internet-btn{background:#e00000;color:#fff;border:none;border-radius:30px;padding:10px 16px;font-size:12px;font-weight:700;white-space:nowrap;cursor:pointer;flex-shrink:0;letter-spacing:.4px;}
+.internet-btn:hover{background:#b80000;}
+ 
+/* nav list */
+.nav-links{display:flex;align-items:center;gap:14px;list-style:none;flex:1;margin:0;}
+.nav-links>li{position:relative;padding:18px 0;cursor:pointer;}
+.nav-links>li>a{color:#b2b7b2;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;transition:color .2s;}
+.nav-links>li:hover>a{color:#fff;}
+ 
+/* active underline */
+.nav-active{color:#fff !important;position:relative;}
+.nav-active::after{content:"";position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:#e00000;}
+ 
+/* search */
+.nav-search{display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.nav-search i{color:#e00000;font-size:15px;}
+.nav-search input{background:transparent;border:none;color:#aaa;font-size:13px;outline:none;width:140px;}
+.nav-search input::placeholder{color:#555;}
+ 
+/* logo */
+.nav-logo img{width:48px;height:48px;object-fit:contain;display:block;}
+.logo-fallback{width:48px;height:48px;background:#e00000;color:#fff;font-size:22px;font-weight:900;border-radius:6px;display:none;align-items:center;justify-content:center;}
+ 
+/* ===== DROPDOWN — full viewport width ===== */
+.drop-menu{
+    display:none;
+    position:fixed;
+    left:0;
+    width:100vw;
+    background:#2e2e2e;
+    border-top:3px solid #e00000;
+    border-bottom:1px solid #444;
+    padding:28px 7%;
+    flex-direction:row;
+    align-items:flex-start;
+    gap:0;
+    z-index:2999;
+    box-shadow:0 12px 30px rgba(0,0,0,.6);
+    /* top is set by JS */
+}
+.nav-links>li:hover>.drop-menu{display:flex;}
+ 
+.drop-col{flex:1;padding:0 20px;min-width:130px;}
+.drop-col:first-child{padding-left:0;}
+.drop-col h3{color:#ffffff;font-size:11px;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #444;padding-bottom:8px;}
+.drop-col p{color:#aaa;font-size:12.5px;line-height:2;cursor:pointer;transition:color .2s;white-space:nowrap;}
+.drop-col p:hover{color:#e00000;}
+.drop-divider{width:1px;background:#484848;align-self:stretch;flex-shrink:0;margin:0 4px;}
+.drop-img{flex-shrink:0;margin-left:20px;}
+.drop-img img{width:180px;height:240px;object-fit:cover;border-radius:8px;display:block;}
+ 
+/* ===== ANNOUNCEMENT BAR ===== */
+.announce-bar{width:100%;height:42px;background:#494949;border-bottom:3px solid #e00000;display:flex;align-items:center;position:relative;}
+.announce-bar .carousel{flex:1;height:100%;}
+.announce-bar .carousel-inner,.announce-bar .carousel-item{height:100%;}
+.announce-bar .carousel-item p{color:#d9d9d9;font-size:13px;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 200px;margin:0;}
+.announce-bar .carousel-control-prev{left:auto;right:170px;width:26px;height:26px;top:50%;transform:translateY(-50%);opacity:.8;}
+.announce-bar .carousel-control-next{right:144px;width:26px;height:26px;top:50%;transform:translateY(-50%);opacity:.8;}
+.announce-bar .carousel-control-prev-icon,.announce-bar .carousel-control-next-icon{width:13px;height:13px;}
+.announce-close{position:absolute;right:108px;top:50%;transform:translateY(-50%);color:#e00000;background:transparent;border:none;font-size:24px;line-height:1;cursor:pointer;}
+ 
+/* ===== HERO ===== */
+.hero-section{display:flex;background:#111;min-height:500px;}
+.hero-carousel-wrap{flex:1;position:relative;overflow:hidden;}
+.hero-carousel .carousel-inner,.hero-carousel .carousel-item{height:500px;}
+.hero-slide{width:100%;height:500px;position:relative;display:flex;align-items:flex-end;padding-bottom:80px;}
+.hero-slide::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.78) 38%,rgba(0,0,0,.05) 100%);}
+.hs1{background:url("https://www.zenithbank.com/media/zcubmtco/hero-img1.jpg?width=1440&quality=70") center/cover no-repeat;}
+.hs2{background:url("https://www.zenithbank.com/media/4z2h20lq/aspire24.jpg?width=1440&quality=70") center/cover no-repeat;}
+.hs3{background:url("https://www.zenithbank.com/media/cs1pdzps/sme-local.jpg?width=1440&quality=70") center/cover no-repeat;}
+.hs4{background:url("https://www.zenithbank.com/media/oc1foqi3/timeless.jpg?width=1440&quality=70") center/cover no-repeat;}
+.hs5{background:url("https://www.zenithbank.com/media/cazmxann/save4me.jpg?width=1440&quality=70") center/cover no-repeat;}
+.hero-text{position:relative;z-index:2;padding-left:7%;max-width:460px;}
+.hero-text h1{font-size:42px;font-weight:400;color:#fff;line-height:1.15;margin-bottom:16px;}
+.hero-text p{color:#ccc;font-size:14px;line-height:1.8;}
+.hero-text strong{color:#fff;}
+ 
+/* hero indicators */
+.hero-ind{position:absolute;bottom:54px;left:7%;right:auto;margin:0;justify-content:flex-start;gap:5px;}
+.hero-ind [data-bs-target]{width:34px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);border:none;opacity:1;}
+.hero-ind .active{background:#e00000;}
+ 
+/* bottom tabs */
+.hero-tabs{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgba(0,0,0,.55);z-index:10;}
+.hero-tabs button{flex:1;padding:12px 8px;background:transparent;border:none;border-right:1px solid rgba(255,255,255,.1);color:#ccc;font-size:12px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:.2s;}
+.hero-tabs button:last-child{flex:0 0 48px;border-right:none;font-size:17px;}
+.hero-tabs button:hover{background:rgba(255,255,255,.08);color:#fff;}
+ 
+/* right panel */
+.hero-panel{width:265px;flex-shrink:0;background:rgba(18,18,18,.97);padding:26px 18px 18px;display:flex;flex-direction:column;z-index:5;}
+.hero-panel h2{font-size:19px;font-weight:400;color:#fff;margin-bottom:16px;line-height:1.3;}
+.panel-links{display:flex;flex-direction:column;gap:3px;}
+.panel-links a{display:flex;align-items:center;gap:8px;color:#ddd;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.3px;padding:9px 11px;border-radius:5px;background:rgba(255,255,255,.05);transition:background .2s;}
+.panel-links a:hover{background:rgba(220,0,0,.16);color:#fff;}
+.panel-links a .pi{color:#e00000;font-size:13px;width:15px;}
+.panel-links a .pc{margin-left:auto;color:#e00000;font-size:10px;}
+ 
+/* ===== PRODUCTS ===== */
+.products-section{background:#1b1b1b;padding:65px 0 0;}
+.products-scroll{display:flex;gap:16px;overflow-x:auto;padding:0 5% 48px;scroll-behavior:smooth;}
+.products-scroll::-webkit-scrollbar{display:none;}
+.prod-card{position:relative;min-width:250px;width:250px;height:365px;border-radius:15px;overflow:hidden;cursor:pointer;flex-shrink:0;transition:transform .3s;}
+.prod-card:hover{transform:translateY(-8px);}
+.prod-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.prod-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.93) 42%,rgba(0,0,0,.12) 100%);padding:18px 16px 16px;display:flex;flex-direction:column;justify-content:flex-end;}
+.prod-overlay h2{font-size:19px;font-weight:400;color:#fff;margin-bottom:9px;line-height:1.2;}
+.prod-overlay ul{margin:0 0 12px 15px;padding:0;}
+.prod-overlay ul li{color:#ddd;font-size:12px;line-height:1.7;}
+.prod-desc{color:#ccc;font-size:12px;line-height:1.6;margin-bottom:12px;}
+.explore-btn{width:105px;padding:8px 0;background:#e00000;color:#fff;border:none;border-radius:30px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:.2s;}
+.explore-btn:hover{background:#b80000;}
+ 
+/* legend */
+.legend-section{padding:58px 8% 0;}
+.legend-redline{height:3px;background:#e00000;margin-bottom:48px;}
+.legend-body{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:28px;padding-bottom:65px;}
+.legend-text h2{font-size:44px;font-weight:500;color:#fff;max-width:440px;line-height:1.15;margin-bottom:14px;}
+.legend-text p{color:#888;max-width:420px;line-height:1.8;font-size:15px;}
+.legend-arrows{display:flex;gap:12px;padding-top:8px;}
+.arr-btn{width:78px;height:78px;border-radius:50%;background:#555;color:#fff;border:none;font-size:24px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;}
+.arr-btn:hover{background:#e00000;}
+ 
+/* channels */
+.channels-section{padding:0 8% 75px;}
+.channels-section h2{text-align:center;font-size:36px;color:#fff;font-weight:400;margin-bottom:26px;}
+.channel-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:26px;margin-bottom:44px;}
+.channel-tabs span{color:#999;cursor:pointer;font-size:14px;position:relative;padding-bottom:8px;transition:color .2s;}
+.channel-tabs span:hover{color:#fff;}
+.ctab-active{color:#fff !important;}
+.ctab-active::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:2px;background:#e00000;}
+.app-showcase{background:#232121;border-radius:16px;display:flex;align-items:center;gap:48px;padding:44px 52px;overflow:hidden;}
+.app-left{flex:1;}
+.app-tag{background:#e00000;color:#fff;padding:6px 15px;border-radius:30px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:20px;letter-spacing:.4px;}
+.app-left h3{font-size:30px;font-weight:400;color:#fff;margin-bottom:14px;line-height:1.2;max-width:300px;}
+.app-left p{color:#999;line-height:1.8;max-width:300px;font-size:14px;}
+.app-right img{width:320px;max-width:100%;border-radius:10px;object-fit:cover;}
+ 
+/* ===== NEWS ===== */
+.news-section{background:#111;padding:75px 6%;}
+.news-section>h2{font-size:36px;color:#fff;font-weight:400;margin-bottom:10px;}
+.news-section>p{color:#888;font-size:14px;margin-bottom:34px;max-width:540px;line-height:1.7;}
+.news-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;height:610px;}
+.news-stack{display:flex;flex-direction:column;gap:13px;grid-row:1/3;}
+.news-card{position:relative;border-radius:13px;overflow:hidden;cursor:pointer;}
+.news-card.small{flex:1;}
+.news-card.tall{grid-row:1/3;}
+.news-card.red-card{background:linear-gradient(135deg,#c40000 0%,#6b0000 100%);grid-row:1/3;}
+.news-card iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none;}
+.news-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.1));}
+.news-content{position:absolute;left:24px;right:20px;bottom:22px;z-index:2;color:#fff;}
+.news-content.bot{bottom:30px;}
+.news-content h3{font-size:15px;font-weight:400;margin:10px 0 6px;line-height:1.3;}
+.news-content p{color:#ccc;font-size:12px;line-height:1.6;}
+.play-btn{width:46px;height:46px;border-radius:50%;background:#e00000;display:flex;align-items:center;justify-content:center;transition:.3s;}
+.play-btn i{color:#fff;font-size:15px;}
+.news-card:hover .play-btn{transform:scale(1.1);}
+.news-tag{position:absolute;top:22px;left:22px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;z-index:2;}
+.news-badge{position:absolute;top:22px;left:22px;background:rgba(0,0,0,.3);color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;z-index:2;}
+ 
+/* ===== SUSTAINABLE ===== */
+.sustain-section{width:100%;height:560px;background:url("https://www.zenithbank.com/media/ylfjudjr/about-hero-banner.jpg?width=1440&quality=70") center/cover no-repeat;position:relative;display:flex;align-items:center;padding:0 8%;}
+.sustain-section::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.52);}
+.sustain-content{position:relative;z-index:2;max-width:520px;}
+.sustain-content h2{font-size:54px;font-weight:400;color:#fff;line-height:1.1;margin-bottom:20px;}
+.sustain-content p{color:#ccc;font-size:17px;line-height:1.8;}
+ 
+/* ===== FOOTER ===== */
+footer{background:#0d0d0d;padding:65px 8% 28px;border-top:1px solid #1e1e1e;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:34px;margin-bottom:46px;}
+.footer-grid h4{color:#fff;font-size:15px;font-weight:500;margin-bottom:20px;}
+.footer-grid ul{list-style:none;}
+.footer-grid ul li{color:#777;margin-bottom:11px;font-size:13px;cursor:pointer;transition:color .2s;line-height:1.5;}
+.footer-grid ul li:hover{color:#e00000;}
+.footer-grid a{text-decoration:none;color:#777;}
+.footer-grid a:hover{color:#e00000;}
+.app-badges{display:flex;flex-direction:column;gap:8px;margin-top:13px;}
+.store-btn{display:inline-flex;align-items:center;gap:7px;background:#1a1a1a;color:#bbb;text-decoration:none;padding:8px 13px;border-radius:6px;font-size:12px;border:1px solid #2a2a2a;transition:.2s;}
+.store-btn:hover{background:#2a2a2a;color:#fff;}
+.footer-bottom{border-top:1px solid #1e1e1e;padding-top:24px;text-align:center;color:#444;font-size:12px;}
+ 
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){.hero-panel{width:220px;}.legend-text h2{font-size:34px;}}
+@media(max-width:768px){
+    .top-bar{display:none;}
+    .nav-links{display:none;}
+    .main-nav{padding:10px 5%;gap:10px;}
+    .hero-section{flex-direction:column;}
+    .hero-panel{width:100%;}
+    .hero-carousel .carousel-inner,.hero-carousel .carousel-item,.hero-slide{height:320px;}
+    .hero-text h1{font-size:26px;}
+    .news-grid{grid-template-columns:1fr;height:auto;}
+    .news-stack{height:auto;}
+    .news-card.tall,.news-card.small{height:260px;}
+    .news-card.tall,.news-card.red-card{grid-row:auto;}
+    .app-showcase{flex-direction:column;padding:26px;gap:24px;}
+    .app-right img{width:100%;}
+    .legend-text h2{font-size:26px;}
+    .channels-section h2{font-size:24px;}
+    .sustain-content h2{font-size:32px;}
+    .products-scroll{padding:0 4% 26px;}
+    .announce-bar .carousel-item p{padding:0 75px 0 12px;font-size:11px;}
+}
+    </style>
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+<body>
+ 
+<!-- ══════════════ NAV ══════════════ -->
+<nav id="mainNav" aria-label="Main navigation">
+      <!-- top utility bar -->
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <a href="../index.html">BRANCH LOCATOR</a>
+          <a href="../index.html">MORE SITES</a>
+        </div>
+        <div class="top-bar-right">
+          <a href="../index.html"><i class="bi bi-person-wheelchair"></i> A a A</a>
+          <a href="../index.html"><i class="bi bi-brightness-high"></i> LIGHT MODE</a>
+          <a href="../index.html"
+            ><i class="bi bi-volume-up"></i> SPEECH
+            <i class="bi bi-caret-down-fill small"></i
+          ></a>
+          <a href="../index.html"><i class="bi bi-globe"></i> SELECT LANG</a>
+          <a href="../index.html"
+            ><img
+              class="nig-img"
+              src="https://www.zenithbank.com/content/images/nigeria.png"
+              alt="NG" />
+            NIGERIA <i class="bi bi-caret-down-fill small"></i
+          ></a>
+        </div>
+      </div>
+      <div class="top-divider"></div>
+
+      <!-- main nav -->
+      <div class="main-nav">
+        <a class="internet-btn" href="5th page.html"><i class="bi bi-lock-fill"></i> INTERNET BANKING</a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span><span class="visually-hidden">Open navigation</span></button>
+        <ul class="nav-links" id="site-navigation">
+          <!-- PERSONAL -->
+          <li>
+            <a href="../index.html">Personal</a>
+            <div class="drop-menu">
+              <div class="drop-col">
+                <h3>Bank Account</h3>
+                <p>Savings Account</p>
+                <p>Salary Account</p>
+                <p>Current Account</p>
+                <p>Private Banking</p>
+                <p>Domiciliary Account</p>
+                <p>Diaspora Banking</p>
+                <p>EazySave Account</p>
+                <p>Save4me Account</p>
+                <p>Zenith Children's Account</p>
+                <p>Aspire Account</p>
+                <p>Zenith Timeless Account</p>
+                <p>Eazy by Zenith</p>
+                <p>Loans</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Business Services</h3>
+                <p>E-Services</p>
+                <p>Import Letters Of Credit (LC)</p>
+                <p>Import Bills For Collection</p>
+                <p>Export Transactions</p>
+                <p>Invisible Remittances</p>
+                <p>Loans</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Cards</h3>
+                <p>Virtual Card</p>
+                <p>Debit Cards</p>
+                <p>Credit Cards</p>
+                <p>Prepaid Cards</p>
+                <p>VISA Direct</p>
+                <p>Travel Notification Portal</p>
+                <p>Card Request Portal</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Electronic Banking</h3>
+                <p>Zenith Bank Mobile App</p>
+                <p>Corporate Internet Banking</p>
+                <p>E-Business Solutions</p>
+                <p>*966# EazyBanking</p>
+                <p>Zenith Trade Portal</p>
+                <p>Zenith SWIFTPay</p>
+                <p>Zenith International Money Transfer</p>
+                <p>Zenith E-Channels Portal</p>
+              </div>
+              <div class="drop-img">
+                <img
+                  src="https://www.zenithbank.com/media/rw3m12wv/mobileapp-img2.jpg?width=720&quality=70"
+                  alt=""
+                />
+              </div>
+            </div>
+          </li>
+
+          <!-- SME -->
+          <li>
+            <a href="../index.html">SME</a>
+            <div class="drop-menu">
+              <div class="drop-col">
+                <h3>Bank Accounts</h3>
+                <p>SME Grow My Business</p>
+                <p>Sole Proprietorship</p>
+                <p>Partnership Accounts</p>
+                <p>Private Banking</p>
+                <p>Clubs, Societies, Associations</p>
+                <p>Trust Funds</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Ways To Bank</h3>
+                <p>*966# EazyBanking</p>
+                <p>Mobile Banking</p>
+                <p>Internet Banking</p>
+                <p>Zenith Scan To Pay</p>
+                <p>Cards</p>
+                <p>ZiVA</p>
+                <p>Branch</p>
+                <p>ATM</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Merchant Services</h3>
+                <p>POS</p>
+                <p>GlobalPay</p>
+                <p>XPath</p>
+                <p>NIBSS</p>
+                <p>Realtime Access</p>
+                <p>Alertz</p>
+                <p>MCASH</p>
+                <p>Agent Banking</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Electronic Banking</h3>
+                <p>Zenith Bank Mobile App</p>
+                <p>Corporate Internet Banking</p>
+                <p>E-Business Solutions</p>
+                <p>Scan To Pay</p>
+                <p>*966# EazyBanking</p>
+                <p>Zenith Trade Portal</p>
+                <p>Zenith SWIFTPay</p>
+                <p>Zenith International Transfer</p>
+              </div>
+              <div class="drop-img">
+                <img
+                  src="https://www.zenithbank.com/media/cs1pdzps/sme-local.jpg?width=660&quality=70"
+                  alt=""
+                />
+              </div>
+            </div>
+          </li>
+
+          <!-- CORPORATE -->
+          <li>
+            <a href="../index.html">Corporate</a>
+            <div class="drop-menu">
+              <div class="drop-col">
+                <h3>Merchant Services</h3>
+                <p>POS</p>
+                <p>GlobalPay</p>
+                <p>XPath</p>
+                <p>NIBSS</p>
+                <p>Realtime Access</p>
+                <p>Alertz</p>
+                <p>MCASH</p>
+                <p>Agent Banking</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Card Solutions</h3>
+                <p>Corporate Card Suite</p>
+                <p>Multipurpose Cards</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Loans & Investment</h3>
+                <p>Loans</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Electronic Banking</h3>
+                <p>E-Business Solutions</p>
+                <p>Corporate Internet Banking</p>
+                <p>Scan To Pay</p>
+                <p>POS</p>
+                <p>Zenith SWIFTPay</p>
+                <p>Zenith International Money Transfer</p>
+                <p>Zenith E-Channels Portal</p>
+              </div>
+              <div class="drop-img">
+                <img
+                  src="https://www.zenithbank.com/media/nlrpxl5c/about104.jpg?width=960&quality=70"
+                  alt=""
+                />
+              </div>
+            </div>
+          </li>
+
+          <!-- MEDIA -->
+          <li>
+            <a href="../index.html">Media</a>
+            <div class="drop-menu">
+              <div class="drop-col">
+                <h3>News</h3>
+                <p>Mentions</p>
+                <p>Press Releases</p>
+                <p>Reports</p>
+                <p>Economic Review</p>
+                <p>Regulatory Update</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Videos</h3>
+                <p>Scan To Pay</p>
+                <p>*966# How To Videos</p>
+                <p>Zenith AGM</p>
+                <p>Internet Banking Tips</p>
+                <p>Zenith Mobile App</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Gallery</h3>
+                <p>AGM</p>
+                <p>Infrastructure</p>
+                <p>ICT Youth Empowerment</p>
+                <p>Education And Scholarship</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Documents</h3>
+                <p>Banking</p>
+                <p>Investor Relations</p>
+                <p>Customer Relation</p>
+              </div>
+              <div class="drop-img">
+                <img
+                  src="https://www.zenithbank.com/media/c4ql5j2g/invest104.jpg?width=960&quality=70"
+                  alt=""
+                />
+              </div>
+            </div>
+          </li>
+
+          <!-- INVESTOR RELATIONS -->
+          <li>
+            <a href="../index.html">Investor Relations</a>
+            <div class="drop-menu">
+              <div class="drop-col">
+                <h3>Strategy</h3>
+                <p>Products</p>
+                <p>Diversification</p>
+                <p>International</p>
+                <p>Core Strengths</p>
+                <p>ICT</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Credit Rating</h3>
+                <p>Standard & Poor</p>
+                <p>Fitch</p>
+                <p>Pharez</p>
+                <p>Moody</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Investor Updates & Records</h3>
+                <p>Investor FAQs</p>
+                <p>2025</p>
+                <p>2024</p>
+                <p>2023</p>
+                <p>2022</p>
+                <p>2021</p>
+                <p>2020</p>
+                <p>2019</p>
+                <p>2018</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Financial Reports</h3>
+                <p>Investor FAQs</p>
+              </div>
+              <div class="drop-img">
+                <img
+                  src="https://www.zenithbank.com/media/c4ql5j2g/invest104.jpg?width=960&quality=70"
+                  alt=""
+                />
+              </div>
+            </div>
+          </li>
+
+          <!-- CSR -->
+          <li>
+            <a href="../index.html">CSR</a>
+            <div class="drop-menu">
+              <div class="drop-col">
+                <h3>Education</h3>
+                <p>ICT Center Donation</p>
+                <p>Computer Science Lab Donation</p>
+                <p>Library Renovation</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Health</h3>
+                <p>War Against Cancer</p>
+                <p>Iga Idunganran Healthcare Centre</p>
+                <p>Mobile Cancer Center Donation</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Infrastructure</h3>
+                <p>Ikoyi Club Souvenir Shop Renovation</p>
+                <p>Reconstruction Of Ajose Adeogun Road</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Sports</h3>
+                <p>
+                  Title Sponsorship Of The National Women's Basketball League
+                </p>
+                <p>Sponsorship Of The Nigeria Football Federation (NFF)</p>
+              </div>
+              <div class="drop-img">
+                <img
+                  src="https://www.zenithbank.com/media/fbzbihgu/csr104.jpg?width=960&quality=70"
+                  alt=""
+                />
+              </div>
+            </div>
+          </li>
+
+          <!-- ABOUT US -->
+          <li>
+            <a href="About us.html">About Us</a>
+            <div class="drop-menu">
+              <div class="drop-col">
+                <h3>Corporate Governance</h3>
+                <p>Board of Directors</p>
+                <p>Management Team</p>
+                <p>Code of Governance</p>
+                <p>The Board</p>
+                <p>Standing Committee of the Board</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Business Focus</h3>
+                <p>Technology of Tomorrow</p>
+                <p>Accuracy</p>
+                <p>Connection</p>
+                <p>Caring</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Awards & Achievements</h3>
+                <p>2023</p>
+                <p>2022</p>
+                <p>2021</p>
+                <p>2020</p>
+                <p>2019</p>
+                <p>2018</p>
+                <p>2017</p>
+                <p>2016</p>
+                <p>2015</p>
+              </div>
+              <div class="drop-divider"></div>
+              <div class="drop-col">
+                <h3>Careers</h3>
+                <p>Life in Zenith</p>
+                <p>Career Development</p>
+                <p>Achievements</p>
+              </div>
+              <div class="drop-img">
+                <img
+                  src="https://www.zenithbank.com/media/nlrpxl5c/about104.jpg?width=960&quality=70"
+                  alt=""
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav-search">
+          <i class="bi bi-search"></i>
+          <input type="search" aria-label="Search the site" placeholder="Looking for something?" />
+        </div>
+
+        <div class="nav-logo">
+          <a href="../index.html" aria-label="Zenith Bank home">
+            <img src="../multimedia/zenith logo.png" alt="Zenith Bank" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="logo-text" aria-hidden="true">Z</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+ 
+<!-- ══════════════ ANNOUNCEMENT BAR ══════════════ -->
+<div class="announce-bar" id="announceBar">
+    <div id="announceCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <p>Zenith Bank Maintains Impressive Track Record, Posts 1.28trn PBT, Doubles Dividend Payout</p>
+            </div>
+            <div class="carousel-item">
+                <p>Zenith Bank Appoints Kennedy Okwudili as Executive Director</p>
+            </div>
+            <div class="carousel-item">
+                <p>Zenith Economic Quarterly Vol.22 No.1 January, 2026</p>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#announceCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#announceCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <button class="announce-close" id="announceClose">&times;</button>
+</div>
+ 
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero-section">
+    <div class="hero-carousel-wrap">
+        <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-indicators hero-ind">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="hero-slide hs1">
+                        <div class="hero-text">
+                            <h1>Protect Your Account</h1>
+                            <p>Zenith Bank will <strong>NEVER</strong> ask for your card details, PIN, token codes, or banking login information via call, SMS, or email. If you receive such messages, <strong>DO NOT</strong> respond or click on any link provided.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-slide hs2">
+                        <div class="hero-text">
+                            <h1>Zenith Aspire Account</h1>
+                            <p>Designed for young adults aged 16-25. Access merchant discounts, a discounted debit card and competitive interest payments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-slide hs3">
+                        <div class="hero-text">
+                            <h1>SME Banking</h1>
+                            <p>Zero opening balance. No account balance requirements. Free SmeHub membership and access to several loan options.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-slide hs4">
+                        <div class="hero-text">
+                            <h1>Timeless Account</h1>
+                            <p>For people aged 60 years and above. Enjoy special travel offers, zero account opening balance and free SMS notifications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-slide hs5">
+                        <div class="hero-text">
+                            <h1>Save4Me Account</h1>
+                            <p>A flexible target savings account with high interest payments. Save over a specified period for your specific goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        <div class="hero-tabs">
+            <button><i class="bi bi-pause-circle"></i> Self-Service</button>
+            <button><i class="bi bi-geo-alt"></i> Branch/ATM Locator</button>
+            <button><i class="bi bi-phone"></i> Zenith Apps</button>
+            <button><i class="bi bi-x-circle"></i></button>
+        </div>
+    </div>
+    <div class="hero-panel">
+        <h2>Let us help you reach your Zenith</h2>
+        <div class="panel-links">
+            <a href="mailto:zenithdirect@zenithbank.com?subject=Open%20an%20account"><i class="bi bi-person pi"></i> OPEN ACCOUNT <i class="bi bi-chevron-right pc"></i></a>
+            <a href="mailto:zenithdirect@zenithbank.com?subject=Block%20an%20account"><i class="bi bi-shield-lock pi"></i> BLOCK ACCOUNT <i class="bi bi-chevron-right pc"></i></a>
+            <a href="5th page.html"><i class="bi bi-eye pi"></i> VIEW ACCOUNT BALANCE <i class="bi bi-chevron-right pc"></i></a>
+            <a href="5th page.html"><i class="bi bi-file-earmark-text pi"></i> ACCOUNT STATEMENT <i class="bi bi-chevron-right pc"></i></a>
+            <a href="5th page.html"><i class="bi bi-send pi"></i> TRANSFER MONEY <i class="bi bi-chevron-right pc"></i></a>
+            <a href="mailto:zenithdirect@zenithbank.com?subject=Airtime%20and%20data%20services"><i class="bi bi-phone pi"></i> BUY AIRTIME / DATA <i class="bi bi-chevron-right pc"></i></a>
+            <a href="mailto:zenithdirect@zenithbank.com?subject=Virtual%20card%20request"><i class="bi bi-credit-card-2-front pi"></i> GET VIRTUAL CARD <i class="bi bi-chevron-right pc"></i></a>
+            <a href="mailto:zenithdirect@zenithbank.com?subject=Mobile%20app%20support"><i class="bi bi-download pi"></i> GET MOBILE APP <i class="bi bi-chevron-right pc"></i></a>
+            <a href="About us.html#contact-band"><i class="bi bi-chat-dots pi"></i> ENQUIRY / FEEDBACK <i class="bi bi-chevron-right pc"></i></a>
+        </div>
+    </div>
+</section>
+ 
+<!-- ══════════════ PRODUCT CARDS ══════════════ -->
+<section class="products-section">
+    <div class="products-scroll" id="prodScroll">
+        <div class="prod-card">
+            <img src="https://www.zenithbank.com/media/cs1pdzps/sme-local.jpg?width=660&height=840&quality=70" alt="SME Banking">
+            <div class="prod-overlay">
+                <h2>SME Banking</h2>
+                <ul><li>Zero opening balance</li><li>No account balance requirements</li><li>Free membership of the SmeHub</li><li>Access to several loan options</li></ul>
+                <button class="explore-btn">EXPLORE</button>
+            </div>
+        </div>
+        <div class="prod-card">
+            <img src="https://www.zenithbank.com/media/4z2h20lq/aspire24.jpg?width=660&height=840&quality=70" alt="Zenith Aspire">
+            <div class="prod-overlay">
+                <h2>Zenith Aspire</h2>
+                <ul><li>For people aged 16-25 years</li><li>Access merchant discounts and offers</li><li>Discounted Debit card</li><li>Competitive Interest payments</li></ul>
+                <button class="explore-btn">EXPLORE</button>
+            </div>
+        </div>
+        <div class="prod-card">
+            <img src="https://www.zenithbank.com/media/cazmxann/save4me.jpg?width=660&height=840&quality=70" alt="Save4Me">
+            <div class="prod-overlay">
+                <h2>Save4Me Account</h2>
+                <p class="prod-desc">A flexible target Savings account offering high interest payments and designed for people who want to save over a specified period for specific goals.</p>
+                <button class="explore-btn">EXPLORE</button>
+            </div>
+        </div>
+        <div class="prod-card">
+            <img src="https://www.zenithbank.com/media/oc1foqi3/timeless.jpg?width=660&height=840&quality=70" alt="Timeless Account">
+            <div class="prod-overlay">
+                <h2>Timeless Account</h2>
+                <ul><li>For people aged 60 years and above</li><li>Zero account opening balance</li><li>Special travel and holiday offer</li><li>Free SMS notification, cheque book and debit card issuance</li></ul>
+                <button class="explore-btn">EXPLORE</button>
+            </div>
+        </div>
+        <div class="prod-card">
+            <img src="https://www.zenithbank.com/media/4z2h20lq/aspire24.jpg?width=660&height=840&quality=70" alt="Diaspora Banking">
+            <div class="prod-overlay">
+                <h2>Diaspora Banking</h2>
+                <ul><li>Instant FX conversion</li><li>Remote Account Opening Process</li><li>&#8358;, $, &pound;, &euro; Debit, Credit and Prepaid cards</li></ul>
+                <button class="explore-btn">EXPLORE</button>
+            </div>
+        </div>
+        <div class="prod-card">
+            <img src="https://www.zenithbank.com/media/ilheauof/zecas2.jpg?width=660&height=840&quality=70" alt="ZECA">
+            <div class="prod-overlay">
+                <h2>Zenith Children's Account</h2>
+                <ul><li>For children aged 0-15 years</li><li>Zero account opening balance</li><li>Competitive Interest payments</li></ul>
+                <button class="explore-btn">EXPLORE</button>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="legend-section">
+        <div class="legend-redline"></div>
+        <div class="legend-body">
+            <div class="legend-text">
+                <h2>We have the right account for every banking need</h2>
+                <p>Our services are powered by the latest technology, and our people are friendly and committed to delivering exceptional customer service.</p>
+            </div>
+            <div class="legend-arrows">
+                <button class="arr-btn" id="scrollLeft">&#8592;</button>
+                <button class="arr-btn" id="scrollRight">&#8594;</button>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="channels-section">
+        <h2>Bank 24/7 on your preferred channels</h2>
+        <div class="channel-tabs">
+            <span class="ctab-active">Mobile App</span>
+            <span>*966# Eazy Banking</span>
+            <span>Cards</span>
+            <span>Internet Banking</span>
+            <span>ZIVA</span>
+            <span>Agent Banking</span>
+        </div>
+        <div class="app-showcase">
+            <div class="app-left">
+                <span class="app-tag">MOBILE APP</span>
+                <h3>We go everywhere with you</h3>
+                <p>Download the Zenith Bank mobile app. It is like having your own personal branch in your palm.</p>
+            </div>
+            <div class="app-right">
+                <img src="https://www.zenithbank.com/media/rw3m12wv/mobileapp-img2.jpg?width=720&quality=70" alt="Mobile App">
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<!-- ══════════════ NEWS ══════════════ -->
+<section class="news-section">
+    <h2>Stay in the know</h2>
+    <p>We are committed to providing you with exceptional service while operating in an ethical and friendly manner.</p>
+    <div class="news-grid">
+        <div class="news-stack">
+            <div class="news-card small">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="IWD"></iframe>
+                <div class="news-overlay"></div>
+                <div class="news-content">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                    <h3>2026 International Women's Day</h3>
+                    <p>Give To Gain: Supporting and investing in women promotes equality and benefits society.</p>
+                </div>
+            </div>
+            <div class="news-card small">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Open Account"></iframe>
+                <div class="news-overlay"></div>
+                <div class="news-content">
+                    <span class="news-tag">Rewards</span>
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                    <h3>6 Ways to Open a Zenith Bank Account</h3>
+                    <p>Opening an account has become much easier with various channels available.</p>
+                </div>
+            </div>
+        </div>
+        <div class="news-card tall">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Wazobias"></iframe>
+            <div class="news-overlay"></div>
+            <div class="news-content bot">
+                <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                <h3>Meet the Wazobias</h3>
+                <p>Explore a wide range of products tailored to suit your personal style.</p>
+            </div>
+        </div>
+        <div class="news-card red-card tall">
+            <span class="news-badge">Achievements</span>
+            <div class="news-content bot">
+                <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                <h3>Celebrating 35 Years</h3>
+                <p>A Legacy of People, Technology and Service</p>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<!-- ══════════════ SUSTAINABLE ══════════════ -->
+<section class="sustain-section">
+    <div class="sustain-content">
+        <h2>Sustainable Development</h2>
+        <p>Our aim is to reduce our carbon footprint and conduct our activities in a sustainable manner that aligns with ESG objectives.</p>
+    </div>
+</section>
+ 
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h4>Customer Services</h4>
+            <ul>
+                <li>Help Center</li><li>Whistle Blower</li><li>Dispense Error</li>
+                <li>Frequently Asked Questions</li><li>Locate A Branch/ATM</li>
+                <li>Downloads</li><li>Contact Us</li>
+                <li><a href="2nd page.html">Create Hardware Token Pin</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Protect Yourself</h4>
+            <ul>
+                <li>Scam Alert</li><li>Internet Banking Security</li>
+                <li>Email Fraud &amp; Phishing</li><li>Card Security</li>
+                <li>Online Security</li><li>Bank Verification Number</li>
+                <li>Regulatory Authorities</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="5th page.html">Realtime Access</a></li>
+                <li>Zenith E-Channels Portal</li><li>Zenith Trade Portal</li>
+                <li>Visa Online</li><li>Dormant Account Reactivation</li>
+                <li>Dormant Account Checker</li>
+                <li>Letter of Credit Application Form</li>
+                <li>Travel Notification Portal</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Zenith App Download</h4>
+            <ul><li>At Zenith, we believe that the beauty of life lies in the little things that give us a better expression of ourselves.</li></ul>
+            <div class="app-badges">
+                <a href="mailto:zenithdirect@zenithbank.com?subject=Mobile%20app%20support" class="store-btn"><i class="bi bi-apple"></i> App Store</a>
+                <a href="mailto:zenithdirect@zenithbank.com?subject=Mobile%20app%20support" class="store-btn"><i class="bi bi-google-play"></i> Google Play</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Zenith Bank Plc. All rights reserved.</p>
+    </div>
+</footer>
+ 
+<script>
+// ── Close announcement bar ──
+document.getElementById("announceClose").addEventListener("click",function(){
+    document.getElementById("announceBar").style.display="none";
+});
+ 
+// ── Scroll arrows ──
+var ps = document.getElementById("prodScroll");
+document.getElementById("scrollLeft").addEventListener("click",function(){ps.scrollBy({left:-270,behavior:"smooth"});});
+document.getElementById("scrollRight").addEventListener("click",function(){ps.scrollBy({left:270,behavior:"smooth"});});
+ 
+// ── Channel tabs ──
+document.querySelectorAll(".channel-tabs span").forEach(function(t){
+    t.addEventListener("click",function(){
+        document.querySelectorAll(".channel-tabs span").forEach(function(s){s.classList.remove("ctab-active");});
+        t.classList.add("ctab-active");
+    });
+});
+</script>
+<script src="../js/header.js"></script>
+</body>
+</html>
+
+
+
+

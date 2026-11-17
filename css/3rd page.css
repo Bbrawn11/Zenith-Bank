@@ -1,0 +1,777 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+nav {
+    width: 100%;
+    height:15vh;
+    background-color: #1b1b1b;
+    margin: auto;
+    /* position: fixed; */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+.container {
+    width: 80%;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    word-spacing: 12px;
+    margin: auto;
+}
+
+.con-con {
+    display: flex;
+
+}
+
+
+
+.con-con1 a {
+    padding: 13px;
+}
+
+.con-con2 a {
+    padding: 13px;
+}
+
+.con-con11 a {
+    padding: 13px;
+}
+
+
+
+.container a {
+    color: #868786;
+    text-decoration: none;
+    font-size: 14px;
+    margin: auto;
+    border: 1px solid #494949;
+
+}
+
+.border {
+    border: 1px solid #494949;
+}
+
+.sec-con {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+}
+
+.con {
+   margin-top: -60px;
+}
+
+.con button {
+    background-color: red;
+    border-radius: 40px;
+    padding: 20px;
+    border: none;
+    
+
+}
+
+.con a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.links a {
+    color: #b2b7b2;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    text-shadow: none;
+    font-family: Inter, sans-serif;
+}
+
+
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+
+}
+
+.u {
+    border: 1px solid red;
+}
+
+.personal-drop {
+    width: 85%;
+    top: 140px;
+    background-color: #414141;
+    height: 770px;
+    position: absolute;
+    left: 190px;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    line-height: 40px;
+    z-index: 100 !important;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 30px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.personal {
+    height: 100px;
+    padding-top: 40px;
+}
+
+.content h3:hover {
+    color: red;
+}
+
+.content p:hover {
+    color: red;
+}
+
+.content-1:hover h3 {
+    color: red;
+}
+
+.content-1 p:hover {
+    color: red;
+}
+
+.content-2:hover h3 {
+    color: red;
+}
+
+.content-2 p:hover {
+    color: red;
+}
+
+.content-3:hover h3 {
+    color: red;
+}
+
+.content-3 p:hover {
+    color: red;
+}
+
+.con-img1 img {
+    width: 380px;
+    height: 770px;
+    object-fit: cover;
+}
+
+.con-img2 img {
+    width: 390px;
+    height: 400px;
+    object-fit: cover;
+    padding-left: 100px;
+
+}
+
+.con-img3 img {
+    width: 340px;
+    height: 380px;
+    object-fit: cover;
+    padding-left: 100px;
+
+}
+
+.con-img4 img {
+    width: 480px;
+    height: 250px;
+    object-fit: cover;
+    padding-left: 140px;
+
+}
+
+.con-img5 img {
+    width: 320px;
+    height: 720px;
+    object-fit: cover;
+    padding-left: 140px;
+
+}
+
+.con-img6 img {
+    width: 320px;
+    height: 210px;
+    object-fit: cover;
+
+
+}
+
+.con-img7 img {
+    width: 350px;
+    height: 650px;
+    object-fit: cover;
+    padding-left: 140px;
+
+}
+
+
+
+
+.personal:hover .personal-drop {
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+}
+
+.nig-img {
+    width: 20px;
+}
+
+.input i {
+    color: red;
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+.looking {
+    background: #1b1b1b;
+    border: none;
+}
+
+.content,
+.content-1,
+.content-2,
+.content-3 h3 {
+    color: #7c7979;
+}
+
+.content,
+.content-3 p {
+    color: #7c7979;
+}
+
+.bord {
+    border: 1px solid white;
+
+}
+
+
+
+.sme-drop {
+    width: 83%;
+    top: 140px;
+    background-color: #414141;
+    height: 540px;
+    position: absolute;
+    left: 190px;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    line-height: 40px;
+    font-size: 16.5px;
+    font-weight: 500;
+    padding: 30px;
+    z-index: 100 !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.sme {
+    height: 100px;
+    padding-top: 40px;
+}
+
+.sme:hover .sme-drop {
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+}
+
+.corporate-drop {
+    width: 80%;
+    top: 140px;
+    background-color: #414141;
+    height: 510px;
+    position: absolute;
+    left: 190px;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    line-height: 40px;
+    font-weight: 500;
+    font-size: 16.5px;
+    padding: 30px;
+    z-index: 100 !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.corporate {
+    height: 100px;
+    padding-top: 40px;
+}
+
+.corporate:hover .corporate-drop {
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+}
+
+.media-drop {
+    width: 83%;
+    top: 140px;
+    background-color: #414141;
+    height: 360px;
+    position: absolute;
+    left: 190px;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    line-height: 40px;
+    font-size: 16.5px;
+    font-weight: 500;
+    padding: 30px;
+    z-index: 100 !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.media {
+    height: 100px;
+    padding-top: 40px;
+}
+
+.media:hover .media-drop {
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+}
+
+.invest-drop {
+    width: 80%;
+    top: 140px;
+    background-color: #414141;
+    height: 810px;
+    position: absolute;
+    left: 190px;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    line-height: 40px;
+    font-size: 16.5px;
+    font-weight: 500;
+    padding: 30px;
+    z-index: 100 !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.invest {
+    height: 100px;
+    padding-top: 40px;
+}
+
+.invest:hover .invest-drop {
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+}
+
+.csr-drop {
+    width: 85%;
+    top: 140px;
+    background-color: #414141;
+    height: 320px;
+    position: absolute;
+    left: 190px;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    line-height: 40px;
+    font-size: 16.5px;
+    font-weight: 500;
+    padding: 30px;
+    z-index: 100 !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.csr {
+    height: 100px;
+    padding-top: 40px;
+}
+
+.csr:hover .csr-drop {
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+}
+
+.about-drop {
+    width: 80%;
+    top: 140px;
+    background-color: #414141;
+    height: 720px;
+    position: absolute;
+    left: 190px;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    line-height: 40px;
+    font-size: 16.5px;
+    font-weight: 500;
+    padding: 30px;
+    z-index: 100 !important;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.about {
+    height: 100px;
+    padding-top: 40px;
+}
+
+.about:hover .about-drop {
+    opacity: 1;
+    visibility: visible;
+    margin: auto;
+}
+
+.third-con {
+    width: 100%;
+    height: 7vh;
+    background-color: #494949;
+    border-bottom: 4px solid red;
+    display: flex;
+    align-items: center;
+    /* z-index: 10;  */
+}
+
+.third-con .carousel {
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.third-con .carousel-inner,
+.third-con .carousel-item {
+    height: 100%;
+
+}
+
+.third-con .carousel-item p {
+    color: #d9d9d9;
+    font-size: 14px;
+    font-weight: 400;
+    height: 100%;
+    margin: 0;
+    padding: 0 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.third-con .carousel-control-prev,
+.third-con .carousel-control-next {
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+.third-con .carousel-control-prev {
+    left: auto;
+    right: 250px;
+}
+
+.third-con .carousel-control-next {
+    right: 220px;
+}
+
+.third-con .carousel-control-prev-icon,
+.third-con .carousel-control-next-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.third-con-close {
+    position: absolute;
+    top: 50%;
+    right: 185px;
+    transform: translateY(-50%);
+    color: red;
+    background: transparent;
+    border: 0;
+    font-size: 30px;
+    line-height: 1;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .third-con .carousel-item p {
+        font-size: 12px;
+        padding: 0 88px 0 16px;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .third-con .carousel-control-prev {
+        right: 58px;
+    }
+
+    .third-con .carousel-control-next {
+        right: 30px;
+    }
+
+    .third-con-close {
+        right: 8px;
+        font-size: 26px;
+    }
+}
+
+.news-con {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    background-color: red;
+}
+
+.third-con h2 {
+    font-size: 18px;
+    color: #cfcfcf;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
+.service-banner{
+    height:500px;
+    background-image:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("../multimedia/z mandate 1.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+}
+
+.service-overlay{
+    width:100%;
+    padding-left:12%;
+}
+
+.service-content{
+    color:#fff;
+    max-width:500px;
+}
+
+.service-content h2{
+    font-size:58px;
+    font-weight:600;
+    line-height: 50.4px;
+    margin-bottom:15px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.service-content p{
+    font-size:28px;
+    line-height:1.3;
+}
+
+.hero{
+    background-color: #1b1b1b;
+    /* width: 100%; */
+    height: 130vh;
+   
+}
+
+.hero-pack{
+    display: flex;
+    width: 98%;
+}
+.hero-txt{
+    color: white;
+    width: 98%;
+    margin-top: 60px;
+    margin-left: 190px;
+}
+
+.hero-txt h1{
+    line-height: 110px;
+    font-size: 45px;
+}
+
+.hero-txt p{
+    font-size: 20px;
+    color: #868786;
+    line-height: 25px;
+}
+
+.z-btn a{
+    background-color:#e3000f;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    gap: 60px;
+    font-family: Inter, sans-serif;
+}
+
+summary{
+    list-style: none;
+    margin-top: 50px;
+    color: #868786;
+}
+
+summary :hover {
+    color: red;
+}
+
+.benefit-icon::before:hover{color: red;}
+
+
+.benefit-icon{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.benefit-icon::before,
+.benefit-icon::after{
+    content: "";
+    width: 15px;
+    height: 3px;
+    position: absolute;
+    background: #b2b7b2;
+    left: 600px;
+    top: -12px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}
+
+.benefit-icon::after{
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+details[open] .benefit-icon::after{
+     transform: translate(-50%, -50%);
+}
+
+
+.contact{
+    background-color:#e3000f;
+    height: 45vh;
+    z-index: -1;
+    width: 100%;
+    margin-top: -20px;
+}
+
+.con {
+    padding-top: 60px;
+}
+
+.con-card{
+    width: 70%;
+    margin-top: 50px;
+    z-index: 1;
+    height: 30vh;
+    margin: auto;
+    border-radius: 10px;
+    background-color:#b6000c;
+    /* border: 1px solid black; */
+}
+
+.con-card h1{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size:42px;
+    color: white;
+    word-spacing: 5px;
+    padding: 60px 50px;
+}
+.con-card p{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size:20px;
+    color: white;
+    word-spacing: 3px;
+    margin-top: -110px;
+    font-weight: 500;
+    padding: 60px 50px;
+}
+
+/* Flexible content layout for laptop, tablet and phone widths. */
+body { overflow-x: hidden; }
+.service-banner { min-height: 360px; height: clamp(360px, 42vw, 500px); }
+.service-overlay { padding: 48px clamp(22px, 8vw, 120px); }
+.service-content h2 { font-size: clamp(38px, 5vw, 58px); line-height: 1.08; }
+.service-content p { max-width: 580px; font-size: clamp(18px, 2.1vw, 26px); }
+.hero { height: auto; min-height: 0; padding: clamp(48px, 7vw, 90px) 0; }
+.hero-pack {
+    width: min(1180px, 88%);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr);
+    align-items: center;
+    gap: clamp(28px, 6vw, 80px);
+}
+.hero-txt { width: auto; margin: 0; }
+.hero-txt h1 { margin: 0 0 22px; font-size: clamp(34px, 4vw, 48px); line-height: 1.12; }
+.hero-txt p { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.7; }
+.z-btn { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 34px; }
+.z-btn a { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 20px; }
+.hero-img { min-width: 0; }
+.mandate-image,
+.hero-img img { display: block; width: 100% !important; height: auto; max-height: 620px; padding: 0 !important; object-fit: contain; }
+.hero details { border-top: 1px solid #444; }
+.hero summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0; padding: 18px 0; cursor: pointer; }
+.hero summary h3 { margin: 0; font-size: 16px; }
+.benefit-icon { flex: 0 0 28px; width: 28px; height: 28px; background: transparent; }
+.benefit-icon::before,
+.benefit-icon::after { left: 50%; top: 50%; }
+.contact { height: auto; min-height: 0; margin: 0; padding: 44px 6%; }
+.con { padding: 0; }
+.con-card { width: min(900px, 100%); height: auto; min-height: 0; margin: 0 auto; padding: clamp(24px, 5vw, 54px); }
+.con-card h1 { margin: 0 0 12px; padding: 0; font-size: clamp(28px, 4vw, 40px); }
+.con-card p { margin: 0; padding: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.6; }
+
+@media (max-width: 760px) {
+    .service-banner { min-height: 330px; height: auto; }
+    .service-overlay { min-height: 330px; padding: 40px 24px; }
+    .hero-pack { width: min(100% - 36px, 600px); grid-template-columns: 1fr; }
+    .hero-img { grid-row: 1; }
+    .hero-img img { max-height: 360px; }
+    .hero-txt { grid-row: 2; }
+    .z-btn { flex-direction: column; align-items: stretch; }
+    .z-btn a { text-align: center; }
+    .contact { padding: 28px 18px; }
+}
